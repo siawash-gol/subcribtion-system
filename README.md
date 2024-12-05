@@ -10,10 +10,10 @@ Security Measures: JWT-based authentication and email verification to ensure use
 Customizable Dashboard: A user-friendly dashboard for subscribers to view and manage their plans.</br>
 
 <h2>Requirements</h2>
-Python 3.8+</b1>
-Django 4.x</b1>
-Django REST Framework</b1>
-Docker (optional, for containerization)</b1>
+Python 3.8+</br>
+Django 4.x</br>
+Django REST Framework</br>
+Docker (optional, for containerization)</br>
 
 <h2>Usage</h2>
 API Endpoints: Access the API documentation (e.g., Swagger or Postman collection) at /api/docs.
@@ -30,5 +30,5 @@ This project is licensed under the MIT License.
 <h2>Contact</h2>
 If you have any questions or need support, feel free to reach out:</br>
 
-<h3>Email: siawash.gol@example.com</h3>
-<h3>GitHub: siawash-gol</h3>
+Email: siawash.gol@example.com
+GitHub: siawash-gol
