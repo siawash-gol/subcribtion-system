@@ -25,8 +25,8 @@ class CreatePaymentRequestView(APIView):
 
     def post(self, request, *args, **kwargs):
         user = request.user
-        plan_sku = kwargs.get('sku', None)
-        plan = get_object_or_404(Plan, sku=plan_sku)
+        plan_slug = kwargs.get('slug', None)
+        plan = get_object_or_404(Plan, slug=plan_slug)
         amount = plan.price
         currency = "CAD"
 
@@ -52,7 +52,7 @@ class CreatePaymentRequestView(APIView):
                         "items": [
                             {
                                 "name": plan.plan,
-                                "sku": plan.sku,
+                                "sku": plan.slug,
                                 "price": str(amount),
                                 "currency": currency,
                                 "quantity": 1,
@@ -85,8 +85,8 @@ class ExecutePayment(APIView):
 
         try:
             payment = paypalrestsdk.Payment.find(payment_id)
-            plan_sku = payment['transactions'][0]['item_list']['items'][0]['sku']
-            plan = get_object_or_404(Plan, sku=plan_sku)
+            plan_slug = payment['transactions'][0]['item_list']['items'][0]['slug']
+            plan = get_object_or_404(Plan, slug=plan_slug)
             amount = payment['transactions'][0]['amount']['total']
 
             if payment.execute({"payer_id": payer_id}):
